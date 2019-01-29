@@ -47,7 +47,7 @@ Include: yum
     mkdir -p /gpfs/scratch
     mkdir -p /gpfs/group
 
-    echo "scl enable devtoolset-7 bash" >> ~/.bashrc
+#    echo "source /opt/rh/devtoolset-7/enable" >> ~/.bashrc
 
     # Install Boost
     cd /storage/work/sw
