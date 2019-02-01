@@ -43,14 +43,17 @@ Include: yum
     yum -y update
 
     mkdir -p /storage/home
-    mkdir -p /storage/work/sw/src
+    mkdir -p /storage/work
     mkdir -p /gpfs/scratch
     mkdir -p /gpfs/group
 
 #    echo "source /opt/rh/devtoolset-7/enable" >> ~/.bashrc
 
+    mkdir -p /opt/sw/
+    cd /opt/sw/
+
     # Install Boost
-    cd /storage/work/sw
+    cd /opt/sw/
     wget https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz
     tar -xf boost_1_69_0.tar.gz
     cd boost_1_69_0
@@ -58,17 +61,17 @@ Include: yum
     ./b2
 
     # Install root
-    cd /storage/work/sw/
+    cd /opt/sw/
 #    wget https://root.cern.ch/download/root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
 #    tar -xf root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
 #    rm root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
     wget https://root.cern/download/root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     tar -xf root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     . root/bin/thisroot.sh
-    echo ". /storage/work/sw/root/bin/thisroot.sh" >> ~/.bashrc
+    echo ". /opt/sw/root/bin/thisroot.sh" >> ~/.bashrc
 
     # Install locust_mc
-    cd /storage/work/sw
+    cd /opt/sw/
     git clone "https://github.com/project8/locust_mc"
     cd locust_mc
     git submodule update --init --recursive
@@ -80,11 +83,11 @@ Include: yum
     cmake3 ..
     make install
     . bin/source/kasperenv.sh
-    echo ". /storage/work/sw/locust_mc/build/bin/kasperenv.sh" >> ~/.bashrc
+    echo ". /opt/sw/locust_mc/build/bin/kasperenv.sh" >> ~/.bashrc
 
 
     # Delete tar files
-    cd /storage/work/sw/
+    cd /opt/sw/
     rm root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     rm boost_1_69_0.tar.gz
 
