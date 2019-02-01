@@ -68,7 +68,7 @@ Include: yum
     wget https://root.cern/download/root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     tar -xf root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     . root/bin/thisroot.sh
-    echo ". /opt/sw/root/bin/thisroot.sh" >> ~/.bashrc
+#    echo ". /opt/sw/root/bin/thisroot.sh" >> ~/.bashrc
 
     # Install locust_mc
     cd /opt/sw/
@@ -83,7 +83,7 @@ Include: yum
     cmake3 ..
     make install
     . bin/source/kasperenv.sh
-    echo ". /opt/sw/locust_mc/build/bin/kasperenv.sh" >> ~/.bashrc
+#    echo ". /opt/sw/locust_mc/build/bin/kasperenv.sh" >> ~/.bashrc
 
 
     # Delete tar files
