@@ -8,6 +8,7 @@ Include: yum
 
 %environment 
 
+
 %runscript
 
 
@@ -34,12 +35,13 @@ Include: yum
         mesa-libGL-devel mesa-libGLU-devel glew-devel ftgl-devel mysql-devel \
         fftw-devel cfitsio-devel graphviz-devel \
         avahi-compat-libdns_sd-devel libldap-dev python-devel \
-        libxml2-devel gsl-devel
+        libxml2-devel gsl-static
     yum -y install openmpi-devel
     yum -y install cmake3
     yum -y install hdf5-devel
 #    yum -y install boost-devel
     yum -y install patch
+    yum -y install redhat-lsb-core
     yum -y update
 
     mkdir -p /storage/home
@@ -58,8 +60,8 @@ Include: yum
     tar -xf boost_1_69_0.tar.gz
     cd boost_1_69_0
     ./bootstrap.sh
-    ./b2
-
+    ./b2 install
+    
     # Install root
     cd /opt/sw/
 #    wget https://root.cern.ch/download/root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
