@@ -76,7 +76,6 @@ Include: yum
     cd locust_mc
     git submodule update --init --recursive
     git clone https://github.com/project8/Kassiopeia.git
-    cd ..
     sed -i -e 's/option( locust_mc_BUILD_WITH_KASSIOPEIA "Option to build with Kassiopeia" FALSE )/option( locust_mc_BUILD_WITH_KASSIOPEIA "Option to build with Kassiopeia" TRUE )/g' CMakeLists.txt
     mkdir build
     cd build
