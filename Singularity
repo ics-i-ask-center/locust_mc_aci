@@ -22,8 +22,8 @@ Include: yum
     yum install -y vte291-devel
     yum install -y vte-profile
     yum install -y centos-release-scl
-#    yum -y install devtoolset-7
-    yum install -y devtoolset-7-gcc*
+    yum -y install devtoolset-7
+#    yum install -y devtoolset-7-gcc*
     scl enable devtoolset-7 bash
     yum -y groups install "Development Tools"
 #    yum -y groups install "GNOME Desktop"
@@ -53,6 +53,8 @@ Include: yum
 
     mkdir -p /opt/sw/
     cd /opt/sw/
+    
+    source /opt/rh/devtoolset-7/enable
 
     # Install Boost
     cd /opt/sw/
@@ -69,8 +71,8 @@ Include: yum
 #    rm root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
     wget https://root.cern/download/root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     tar -xf root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
-    . root/bin/thisroot.sh
-#    echo ". /opt/sw/root/bin/thisroot.sh" >> ~/.bashrc
+    source root/bin/thisroot.sh
+#    echo "source /opt/sw/root/bin/thisroot.sh" >> ~/.bashrc
 
     # Install locust_mc
     cd /opt/sw/
@@ -83,15 +85,15 @@ Include: yum
     cd build
     cmake3 ..
     make install
-    . bin/source/kasperenv.sh
-#    echo ". /opt/sw/locust_mc/build/bin/kasperenv.sh" >> ~/.bashrc
+    source bin/source/kasperenv.sh
+#    echo "source /opt/sw/locust_mc/build/bin/kasperenv.sh" >> ~/.bashrc
 
 
     # Delete tar files
     cd /opt/sw/
     rm root_v6.16.00.Linux-centos7-x86_64-gcc4.8.tar.gz
     rm boost_1_69_0.tar.gz
-
+    rm -rf boost_1_69_0
 
 
 
