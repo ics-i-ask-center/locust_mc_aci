@@ -36,6 +36,7 @@ Include: yum
         fftw-devel cfitsio-devel graphviz-devel \
         avahi-compat-libdns_sd-devel libldap-dev python-devel \
         libxml2-devel gsl-static
+    yum -y install gsl-devel
     yum -y install openmpi-devel
     yum -y install cmake3
     yum -y install hdf5-devel
